@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cout << "Enter number of element you want to store: ";
+	cin >> n;
+	int arr[100], i, j, swap = 0,loop=0;
+	cout << "Enter array values:\n";
+	
+	for (i = 0;i < n;i++)
+	{
+		cin >> arr[i];
+	}
+	int flag = 1;
+	
+	for (i = 0;i < n - 1 && flag == 1;i++)
+	{
+		flag = 0;
+		for (j = 0;j < n - i - 1;j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+				flag = 1;
+				swap++;
+			}
+		}loop++;
+	}
+	cout << "After Bubble sort the array is:\n";
+	for (i = 0;i < n;i++)
+		cout << arr[i] << " ";
+	cout << "Number of swaps " << swap << "\n";
+
+	cout << "Number of times loop executes " << loop << "\n";
+	return 0;
+}
